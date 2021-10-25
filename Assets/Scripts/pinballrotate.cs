@@ -4,27 +4,40 @@ using UnityEngine;
 
 public class pinballrotate : MonoBehaviour
 {
-  
-    public float speed = 1.0f;
-    public CharacterController controller;
-    // Update is called once per frame
+    //Code from Nejo Flipper Tutorial 
+    public float restPostion = 0f;
+    public float pressedPostion = 45f;
+    public float hitStrength = 10000f;
+    public float flipperDamper = 150f;
+
+    public string inputName;
+
+    HingeJoint hinge;
+
+    void Start()
+    {
+        hinge = GetComponent<HingeJoint>();
+        hinge.useSpring = true;
+    }
+
     void Update()
     {
+        JointSpring spring = new JointSpring();
 
-        float x = Input.GetAxis("Horizontal");
+        spring.spring = hitStrength;
+        spring.damper = flipperDamper;
 
-        float y = Input.GetAxis("Vertical");
+        if(Input.GetAxis(inputName)==1)
+        {
+            spring.targetPosition = pressedPostion;
 
+        }
+        else
+        {
+            spring.targetPosition = restPostion;
+        }
 
-        Vector3 movement = new Vector3(x, 0, 0);
-
-        movement = movement.normalized * speed * Time.deltaTime;
-
-        // Vector3 newPosition = transform.position;
-        // newPosition = newPosition + movement;
-
-        //transform.position = newPosition;
-
-        controller.Move(movement);
+        hinge.spring = spring;
+        hinge.useLimits = true;
     }
 }
