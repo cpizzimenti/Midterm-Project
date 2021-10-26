@@ -17,9 +17,7 @@ public class pausemenu : MonoBehaviour
             TogglePause();
         }
     }
-
-
-    public void TogglePause()
+   public void TogglePause()
     {
         if(isPaused==true)
         {
