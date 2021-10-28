@@ -7,7 +7,13 @@ public class PArticleScript : MonoBehaviour
 
     public GameObject triggerParticle;
     public GameObject collisionParticle;
-    
+    public static int score;
+
+    private void Start()
+    {
+        score = 0;
+    }
+
     //gets exectued when somthing enters this trigger or when this object enteres a trigger
     private void OnTriggerEnter(Collider other)
     {
@@ -26,6 +32,7 @@ public class PArticleScript : MonoBehaviour
         if (collisionParticle != null)
         {
             Instantiate(collisionParticle, collision.contacts[0].point, this.transform.rotation);
+            score += 5;
         }
     }
 
