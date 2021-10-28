@@ -32,7 +32,21 @@ public class PArticleScript : MonoBehaviour
         if (collisionParticle != null)
         {
             Instantiate(collisionParticle, collision.contacts[0].point, this.transform.rotation);
-            score += 5;
+
+            if (this.tag == "Green")
+            {
+                score += 5;
+            }
+
+            if (this.tag == "Orange")
+            {
+                score += 10;
+            }
+
+            if (this.gameObject.tag == "Red")
+            {
+                score += 20;
+            }
         }
     }
 
