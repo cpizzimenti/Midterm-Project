@@ -17,6 +17,7 @@ public class pausemenu : MonoBehaviour
             TogglePause();
         }
     }
+
    public void TogglePause()
     {
         if(isPaused==true)
@@ -42,7 +43,7 @@ public class pausemenu : MonoBehaviour
             isPaused = true;
         }
 
-       // isPaused = !isPaused;//this line does the same thing as in the if/else statment; sets isPaused to the opposite of what it is rn
+        // isPaused = !isPaused;//this line does the same thing as in the if/else statment; sets isPaused to the opposite of what it is rn
 
     }
     public void Quit()
