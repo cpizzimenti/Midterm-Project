@@ -29,12 +29,12 @@ public class pinballrotate : MonoBehaviour
 
         if(Input.GetAxis(inputName)==1)
         {
-            spring.targetPosition = pressedPostion;
+            spring.targetPosition = pressedPostion;//will move the object up
 
         }
         else
         {
-            spring.targetPosition = restPostion;
+            spring.targetPosition = restPostion;//will return obj to rest
         }
 
         hinge.spring = spring;
